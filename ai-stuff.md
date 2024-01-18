@@ -22,6 +22,8 @@
 
 # Eri tuotteita
 
+Poimittu muutama topai.tools sivun [listaukseta](https://topai.tools/filter?t=Document%20Search)
+
 ## PDFGPT
 
 ChatGPT pohjainen palvelu PDF-dokumenteille.
