@@ -7,7 +7,16 @@ const OPEN_AI_API_KEY = process.env.OPEN_AI_API_KEY;
 const model = new OpenAI({
   modelName: 'gpt-3.5-turbo-instruct', // Defaults to "gpt-3.5-turbo-instruct" if no model provided.
   temperature: 0.1,
-  openAIApiKey: OPEN_AI_API_KEY // In Node.js defaults to process.env.OPENAI_API_KEY
+  openAIApiKey: OPEN_AI_API_KEY,
+  maxConcurrency: 1,
+  maxRetries: 1,
+  callbacks: [
+    {
+      handleLLMEnd(output) {
+        console.log(JSON.stringify(output, null, 2));
+      }
+    }
+  ]
 });
 
 const loadPDF = async () => {
