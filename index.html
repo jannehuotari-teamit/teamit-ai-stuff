@@ -4,6 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Teamit AI POC</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      #loader {
+        display: none;
+      }
+    </style>
   </head>
   <body>
     <h1>Epic POC</h1>
@@ -11,6 +19,7 @@
       <input type="text" name="question" id="question-string" />
       <input type="submit" value="Ask" name="submit" />
     </form>
+    <img src="loader.webp" alt="AI" id="loader" />
     <div id="answer"></div>
     <script src="./src/main.js"></script>
   </body>
