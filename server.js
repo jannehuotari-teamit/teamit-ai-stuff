@@ -1,8 +1,13 @@
 import { PDFLoader } from 'langchain/document_loaders/fs/pdf';
 import { OpenAI } from '@langchain/openai';
 import { loadQAStuffChain } from 'langchain/chains';
+import express from 'express';
 
+const app = express();
+const port = process.env.PORT || 3000;
 const OPEN_AI_API_KEY = process.env.OPEN_AI_API_KEY;
+
+app.use(express.json());
 
 const model = new OpenAI({
   modelName: 'gpt-3.5-turbo-instruct', // Defaults to "gpt-3.5-turbo-instruct" if no model provided.
@@ -27,23 +32,22 @@ const loadPDF = async () => {
   return docs;
 };
 
-const chat = async (docs) => {
+const chat = async (docs, question) => {
   const chain = await loadQAStuffChain(model);
-  const question = 'Who is the CV about?';
   const response = await chain.invoke({
     input_documents: docs,
     question
   });
-  console.log(response);
+  return response;
 };
 
-const main = async () => {
-  try {
-    const docs = await loadPDF();
-    await chat(docs);
-  } catch (e) {
-    console.error(e.message || e);
-  }
-};
+app.post('/question', async (req, res) => {
+  const question = req.body.question;
+  const docs = await loadPDF();
+  const response = await chat(docs, question);
+  res.send(response);
+});
 
-main();
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`);
+});
