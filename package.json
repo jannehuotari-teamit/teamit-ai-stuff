@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/jannehuotari-teamit/teamit-ai-stuff#readme",
   "dependencies": {
+    "@langchain/openai": "^0.0.12",
     "langchain": "^0.1.4",
     "pdf-parse": "^1.1.1"
   }
