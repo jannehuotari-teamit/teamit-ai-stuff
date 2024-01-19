@@ -32,4 +32,4 @@ Should return:
 
 ## Client
 
-run `npm run client` for simple user interface where you can ask a question also
+Start the server and run `npm run client` for simple user interface where you can ask a question also
