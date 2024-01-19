@@ -1,0 +1,24 @@
+{
+  "name": "teamit-ai",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jannehuotari-teamit/teamit-ai-stuff.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jannehuotari-teamit/teamit-ai-stuff/issues"
+  },
+  "homepage": "https://github.com/jannehuotari-teamit/teamit-ai-stuff#readme",
+  "dependencies": {
+    "langchain": "^0.1.4",
+    "pdf-parse": "^1.1.1"
+  }
+}
