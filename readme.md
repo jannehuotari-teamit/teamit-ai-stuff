@@ -2,7 +2,7 @@
 
 ## Start server
 
-1. add .env file and add you API key there
+1. `cp .env.sample .env` and add you API key to .env file
 
 2. npm install
 
