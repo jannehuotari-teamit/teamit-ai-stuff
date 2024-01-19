@@ -2,12 +2,14 @@ import { PDFLoader } from 'langchain/document_loaders/fs/pdf';
 import { OpenAI } from '@langchain/openai';
 import { loadQAStuffChain } from 'langchain/chains';
 import express from 'express';
+import cors from 'cors';
 
 const app = express();
 const port = process.env.PORT || 3000;
 const OPEN_AI_API_KEY = process.env.OPEN_AI_API_KEY;
 
 app.use(express.json());
+app.use(cors());
 
 const model = new OpenAI({
   modelName: 'gpt-3.5-turbo-instruct', // Defaults to "gpt-3.5-turbo-instruct" if no model provided.

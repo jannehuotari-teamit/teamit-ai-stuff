@@ -29,3 +29,7 @@ Should return:
 "text": " The CV is about Rachel Green."
 }
 ```
+
+## Client
+
+run `npm run client` for simple user interface where you can ask a question also
