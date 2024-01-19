@@ -8,7 +8,7 @@ FORM.onsubmit = async (e) => {
   num++;
   e.preventDefault();
   const question = FORM.elements.question.value;
-  ANSWER.innerHTML += `<p>${question}</p>`;
+  ANSWER.innerHTML += `<p class="user-question">${question}</p>`;
   ANSWER.innerHTML += `<img class="bot-answer-loader" src="loader.webp" alt="AI" />`;
   try {
     const response = await fetch(API_URL, {
@@ -32,7 +32,7 @@ FORM.onsubmit = async (e) => {
     setTimeout(() => {
       document.querySelector('.bot-error-loader').remove();
       ANSWER.innerHTML += `
-        <p class="bot-answer">
+        <p class="bot-answer error">
         Sorry, i have encountered an error, please try again later.
         </p>
       `;

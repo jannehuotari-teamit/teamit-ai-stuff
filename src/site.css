@@ -42,17 +42,34 @@ body {
   text-align: right;
   width: 50%;
   align-self: end;
-  background: white;
+  background: cadetblue;
   padding: 10px;
   border-radius: 10px;
+  z-index: 2;
+  color: #f2f2f2;
+}
+
+.error {
+  background-color: crimson;
+  color: white;
+}
+
+.user-question {
+  background: cornflowerblue;
+  width: 50%;
+  padding: 10px;
+  border-radius: 10px;
+  z-index: 2;
+  color: #f2f2f2;
 }
 
 .bot-answer-loader,
 .bot-error-loader {
-  align-self: end;
-  display: block;
   width: 100%;
-  border-radius: 50%;
-  width: 100px;
-  height: 100px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  opacity: 0.6;
 }
