@@ -10,6 +10,7 @@ const model = new OpenAI({
   openAIApiKey: OPEN_AI_API_KEY,
   maxConcurrency: 1,
   maxRetries: 1,
+  maxTokens: 100,
   callbacks: [
     {
       handleLLMEnd(output) {
