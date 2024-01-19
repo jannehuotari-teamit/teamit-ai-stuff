@@ -1,8 +1,31 @@
 # POC testing for AI document reader
 
-1. add .env file and add you API key there
-2. npm install
-3. source .env
-4. run `node single-doc.js`
+## Start server
 
-You should see following result in console `{ text: ' The CV is about Rachel Green.' }`
+1. add .env file and add you API key there
+
+2. npm install
+
+3. source .env
+
+4. run `npm run dev`
+
+## Ask a question
+
+Send POST request to `http://localhost:3000/question`
+
+Example:
+
+```
+{
+"question": "Who is the CV about?"
+}
+```
+
+Should return:
+
+```
+{
+"text": " The CV is about Rachel Green."
+}
+```

@@ -43,9 +43,14 @@ const chat = async (docs, question) => {
 
 app.post('/question', async (req, res) => {
   const question = req.body.question;
-  const docs = await loadPDF();
-  const response = await chat(docs, question);
-  res.send(response);
+  try {
+    const docs = await loadPDF();
+    const response = await chat(docs, question);
+    res.send(response);
+  } catch (error) {
+    console.log(error.message || error);
+    res.send(error.code || 500);
+  }
 });
 
 app.listen(port, () => {
