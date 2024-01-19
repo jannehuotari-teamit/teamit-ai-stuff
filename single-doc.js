@@ -6,7 +6,7 @@ const OPEN_AI_API_KEY = process.env.OPEN_AI_API_KEY;
 
 const model = new OpenAI({
   modelName: 'gpt-3.5-turbo-instruct', // Defaults to "gpt-3.5-turbo-instruct" if no model provided.
-  temperature: 0.9,
+  temperature: 0.1,
   openAIApiKey: OPEN_AI_API_KEY // In Node.js defaults to process.env.OPENAI_API_KEY
 });
 
@@ -28,8 +28,12 @@ const chat = async (docs) => {
 };
 
 const main = async () => {
-  const docs = await loadPDF();
-  chat(docs);
+  try {
+    const docs = await loadPDF();
+    await chat(docs);
+  } catch (e) {
+    console.error(e.message || e);
+  }
 };
 
 main();
