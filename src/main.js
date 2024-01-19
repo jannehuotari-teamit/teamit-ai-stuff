@@ -17,7 +17,7 @@ FORM.onsubmit = async (e) => {
       body: JSON.stringify({ question })
     });
     const answer = await response.json();
-    ANSWER.innerHTML = answer.text;
+    ANSWER.innerHTML += `<p>${answer.text}</p>`;
     LOADER.style.display = 'none';
   } catch (error) {
     LOADER.style.display = 'none';
