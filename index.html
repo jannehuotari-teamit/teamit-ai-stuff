@@ -8,7 +8,8 @@
       body {
         font-family: Arial, Helvetica, sans-serif;
       }
-      #loader {
+      #loader,
+      #error {
         display: none;
       }
     </style>
@@ -26,8 +27,9 @@
       </div>
       <input type="submit" value="Ask" name="submit" />
     </form>
-    <img src="loader.webp" alt="AI" id="loader" />
     <div id="answer"></div>
+    <img src="loader.webp" alt="AI" id="loader" />
+    <img src="error.gif" alt="AI" id="error" />
     <script src="./src/main.js"></script>
   </body>
 </html>
