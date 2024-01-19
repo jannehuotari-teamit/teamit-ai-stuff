@@ -3,11 +3,13 @@ const ANSWER = document.querySelector('#answer');
 const API_URL = 'http://localhost:3000/question';
 const LOADER = document.querySelector('#loader');
 const ERROR = document.querySelector('#error');
-
+let num = 0;
 FORM.onsubmit = async (e) => {
+  num++;
   e.preventDefault();
-  LOADER.style.display = 'block';
   const question = FORM.elements.question.value;
+  ANSWER.innerHTML += `<p>${question}</p>`;
+  ANSWER.innerHTML += `<img class="bot-answer-loader" src="loader.webp" alt="AI" />`;
   try {
     const response = await fetch(API_URL, {
       method: 'POST',
@@ -17,11 +19,23 @@ FORM.onsubmit = async (e) => {
       body: JSON.stringify({ question })
     });
     const answer = await response.json();
-    ANSWER.innerHTML += `<p>${answer.text}</p>`;
-    LOADER.style.display = 'none';
+    document.querySelector('.bot-answer-loader').remove();
+
+    ANSWER.innerHTML += `
+        <p class="bot-answer">
+        ${answer.text}
+        </p>
+      `;
   } catch (error) {
-    LOADER.style.display = 'none';
-    ERROR.style.display = 'block';
-    ANSWER.innerHTML = 'error!!';
+    document.querySelector('.bot-answer-loader').remove();
+    ANSWER.innerHTML += `<img class="bot-error-loader" src="error.gif" alt="AI" />`;
+    setTimeout(() => {
+      document.querySelector('.bot-error-loader').remove();
+      ANSWER.innerHTML += `
+        <p class="bot-answer">
+        Sorry, i have encountered an error, please try again later.
+        </p>
+      `;
+    }, 4500);
   }
 };

@@ -4,32 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Teamit AI POC</title>
-    <style>
-      body {
-        font-family: Arial, Helvetica, sans-serif;
-      }
-      #loader,
-      #error {
-        display: none;
-      }
-    </style>
+    <link rel="stylesheet" href="src/site.css" />
   </head>
   <body>
-    <h1>Epic POC</h1>
-    <form id="question-form">
-      <div>
-        <textarea
-          id="question-string"
-          name="question"
-          rows="4"
-          cols="50"
-        ></textarea>
-      </div>
-      <input type="submit" value="Ask" name="submit" />
-    </form>
-    <div id="answer"></div>
-    <img src="loader.webp" alt="AI" id="loader" />
-    <img src="error.gif" alt="AI" id="error" />
+    <main class="container">
+      <h1>Epic POC</h1>
+      <div class="answer-container" id="answer"></div>
+      <form id="question-form">
+        <div class="input-container">
+          <textarea
+            class="question-input"
+            id="question-string"
+            name="question"
+          ></textarea>
+          <input class="button" type="submit" value="Ask" name="submit" />
+        </div>
+      </form>
+    </main>
     <script src="./src/main.js"></script>
   </body>
 </html>
