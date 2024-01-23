@@ -6,9 +6,8 @@ const API_URL = 'http://localhost:3000/question';
 const API_URL_2 = 'http://localhost:3000/v2/question';
 const LOADER = document.querySelector('#loader');
 const ERROR = document.querySelector('#error');
-let num = 0;
+
 FORM.onsubmit = async (e) => {
-  num++;
   e.preventDefault();
   const question = FORM.elements.question.value;
   ANSWER.innerHTML += `<p class="user-question">${question}</p>`;
