@@ -6,6 +6,10 @@ body {
   display: none;
 }
 
+p {
+  margin: 0;
+}
+
 .container {
   max-width: 900px;
   width: 100%;
@@ -74,4 +78,9 @@ body {
   left: 0;
   z-index: 1;
   opacity: 0.6;
+}
+
+.user-question,
+.bot-answer {
+  margin-bottom: 10px;
 }
