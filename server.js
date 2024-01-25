@@ -1,8 +1,8 @@
 import express from 'express';
 import cors from 'cors';
 
-import { loadPDF, chat } from './qaChain.js';
-import { search } from './qaRetrieve.js';
+import { loadPDF, chat } from './bot1.js';
+import { search } from './bot2.js';
 
 const app = express();
 const port = process.env.PORT || 3000;

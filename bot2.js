@@ -5,12 +5,8 @@ import { ChatOpenAI } from '@langchain/openai';
 import { OpenAIEmbeddings } from '@langchain/openai';
 import { RetrievalQAChain } from 'langchain/chains';
 
-const OPEN_AI_API_KEY = process.env.OPEN_AI_API_KEY;
-const embeddings = new OpenAIEmbeddings({
-  openAIApiKey: OPEN_AI_API_KEY
-});
+const embeddings = new OpenAIEmbeddings();
 const model = new ChatOpenAI({
-  openAIApiKey: OPEN_AI_API_KEY,
   modelName: 'gpt-3.5-turbo',
   maxConcurrency: 1,
   maxRetries: 1,

@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/jannehuotari-teamit/teamit-ai-stuff#readme",
   "dependencies": {
+    "@langchain/community": "^0.0.20",
     "@langchain/openai": "^0.0.12",
     "cheerio": "^1.0.0-rc.12",
     "cors": "^2.8.5",
