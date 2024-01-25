@@ -56,6 +56,20 @@ Should return:
 }
 ```
 
+### API 3
+
+Basically this whole thing [here](https://js.langchain.com/docs/use_cases/question_answering/advanced_conversational_qa)
+
+Send POST request to `http://localhost:3000/v3/question`
+
+Example:
+
+```
+{
+"question": "What is the name?"
+}
+```
+
 ## Client
 
 Start the server and run `npm run client` for simple user interface where you can ask a question also
