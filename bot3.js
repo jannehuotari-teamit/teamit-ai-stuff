@@ -9,13 +9,12 @@ import { RunnableBranch, RunnableSequence } from '@langchain/core/runnables';
 import { PromptTemplate } from '@langchain/core/prompts';
 import { StringOutputParser } from '@langchain/core/output_parsers';
 
-const OPEN_AI_API_KEY = process.env.OPEN_AI_API_KEY;
-
-export const run = async () => {
+export const run = async (question) => {
+  console.log(question);
   /* Initialize the LLM to use to answer the question */
   const model = new ChatOpenAI({});
   /* Load in the file we want to do question answering over */
-  const text = fs.readFileSync('state_of_the_union.txt', 'utf8');
+  const text = fs.readFileSync('./docs/RachelGreenCV.pdf', 'utf8');
   /* Split the text into chunks */
   const textSplitter = new RecursiveCharacterTextSplitter({ chunkSize: 1000 });
   const docs = await textSplitter.createDocuments([text]);
@@ -162,24 +161,8 @@ Standalone question:`);
   ]);
 
   const resultOne = await fullChain.invoke({
-    question: 'What did the president say about Justice Breyer?'
+    question: question
   });
 
-  console.log({ resultOne });
-  /**
-   * {
-   *   resultOne: 'The president thanked Justice Breyer for his service and described him as an Army veteran, Constitutional scholar, and retiring Justice of the United States Supreme Court.'
-   * }
-   */
-
-  const resultTwo = await fullChain.invoke({
-    question: 'Was it nice?'
-  });
-
-  console.log({ resultTwo });
-  /**
-   * {
-   *   resultTwo: "Yes, the president's description of Justice Breyer was positive."
-   * }
-   */
+  return resultOne;
 };
